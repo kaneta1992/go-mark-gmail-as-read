@@ -114,7 +114,7 @@ func main() {
 	user := "me"
 
 	for {
-		mes, err := srv.Users.Messages.List(user).Q("is:unread").Do()
+		mes, err := srv.Users.Messages.List(user).MaxResults(500).Q("is:unread").Do()
 		if err != nil {
 			log.Fatalf("Error: %v", err)
 		}
